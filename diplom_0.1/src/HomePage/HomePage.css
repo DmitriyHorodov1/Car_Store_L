@@ -1,13 +1,7 @@
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    font-family: consolas;
-  background: linear-gradient(135deg, #e55d87 0%, #5fc3e4 100%);
-}
-h2 {
+
+.text {
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0;
@@ -17,7 +11,7 @@ h2 {
     text-transform: uppercase;
     cursor: pointer;
 }
-h2 span:nth-child(1) {
+.text span:nth-child(1) {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,10 +22,10 @@ h2 span:nth-child(1) {
 }
 
 
-h2:hover span:nth-child(1) {
+.text:hover span:nth-child(1) {
     transform: translateY(-18px);
 }
-h2 span:nth-child(2) {
+.text span:nth-child(2) {
     position: absolute;
     top: 0;
     left: 0;
@@ -40,25 +34,25 @@ h2 span:nth-child(2) {
     clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
     overflow: hidden;
 }
-h2:hover span:nth-child(2) {
+.text:hover span:nth-child(2) {
     transform: translateY(18px);
 }
 
-h2 span:nth-child(3) {
+.text span:nth-child(3) {
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%) scaleY(0);
-    width: 91%;
+    width: 93%;
     color: #000;
     background: #ff0;
-    font-size: 0.25em;
-    letter-spacing: 0.7em;
+    font-size: 0.20em;
+    letter-spacing: 0.4em;
     text-align: center;
     padding-left: 20px;
     margin-left: 5px;
     transition: 0.5s;
 }
-h2:hover span:nth-child(3) {
+.text:hover span:nth-child(3) {
 transform: translateY(-50%) scaleY(1);
 }

@@ -7,16 +7,13 @@ export default function HomePage() {
     
 
     return (
-        <>
 
-<h2>
-    Believe
-    <span>Believe</span>
-    <span>Believe</span>
-    <span>in yourself</span>
-</h2>
-
-        </>
+        <h4 class = 'text'>
+        Detroit
+        <span>Detroit</span>
+        <span>Detroit</span>
+        <span>New and used cars</span>
+       </h4>
       
     );
 }

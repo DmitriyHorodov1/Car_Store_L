@@ -1,158 +1,77 @@
-import * as React from 'react';
-
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import {blue} from "@mui/material/colors";
-import Modal from '@mui/material/Modal';
-import Box from "@mui/material/Box";
+import React, {Component, useState} from 'react';
+import "./AboutProject.css"
+import { Modal, Button } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Particles from "react-tsparticles";
 
 
-const style1 = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: blue[100],
-    borderRadius: '15px',
-    boxShadow: 24,
-    p: 8,
-};
+function AboutProject() {
 
-export default function AboutProject() {
 
-    const [open1, setOpen1] = React.useState(false);
-    const handleOpen1 = () => setOpen1(true);
-    const handleClose1= () => setOpen1(false);
-
-    const [open2, setOpen2] = React.useState(false);
-    const handleOpen2 = () => setOpen2(true);
-    const handleClose2= () => setOpen2(false);
-
-    const [open3, setOpen3] = React.useState(false);
-    const handleOpen3 = () => setOpen3(true);
-    const handleClose3= () => setOpen3(false);
+    
 
     return (
         <>
 
-        <Card sx={{ maxWidth: 345, bgcolor: blue[200], marginLeft: '16%', marginTop:'20%' }}>
-            <CardMedia
-                component="img"
-                height="140"
-                src="https://images.unsplash.com/photo-1485550409059-9afb054cada4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80"
-                alt="heads"
-            />
-            <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                    Про мене
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    Хто я такий взагали? Чим займаюсь? І що такого я зробив?
-                </Typography>
-            </CardContent>
-            <CardActions>
-                <div>
-                    <Button onClick={handleOpen1}>View more</Button>
-                    <Modal
-                        open={open1}
-                        onClose={handleClose1}
-                        aria-labelledby="modal-modal-title"
-                        aria-describedby="modal-modal-description"
-                    >
-                        <Box sx={style1}>
-                            <Typography id="modal-modal-title" variant="h6" component="h2">
-                                Text in a modal 1
-                            </Typography>
-                            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                            </Typography>
-                        </Box>
-                    </Modal>
-                </div>
-            </CardActions>
+            <ul class="cards">
+  <li>
+    <a href="" class="card">
+      <img src="https://mma.prnewswire.com/media/1015261/FCA_Dodge_Powers_Past_Goal.jpg" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          
+          <div class="card__header-text">
+            <h3 class="card__title">What the topic of web_site?</h3>            
+            <span class="card__status">1 hour ago</span>
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>      
+  </li>
+  <li>
+    <a href="" class="card">
+      <img src="https://storage.googleapis.com/production-justhost-v1-0-3/623/387623/tB7mfWuO/fc7e907b6cae44d7aa9ed2bd6ea01cb9" class="card__image" alt="" />
+      <div class="card__overlay">        
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+         
+          <div class="card__header-text">
+            <h3 class="card__title">How am I ?</h3>
+            <span class="card__status">3 hours ago</span>
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>
+  </li>
+  <li>
+  <a href="" class="card">
+      <img src="https://img.freepik.com/free-vector/glitch-error-404-page_23-2148105404.jpg" class="card__image" alt="" />
+      <div class="card__overlay">
+        <div class="card__header">
+          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          
+          <div class="card__header-text">
+            <h3 class="card__title">Find bug ?</h3>            
+            <span class="card__status">сontact me</span>
+          </div>
+        </div>
+        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a> 
+  </li>
+    
+</ul>
 
 
-        </Card>
 
-            <Card sx={{ maxWidth: 345, bgcolor: blue[200], marginLeft: '3%', marginTop:'20%' }}>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    src="https://images.unsplash.com/photo-1556244573-c3686c0f0e78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
-                    alt="heads"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Використані веб технології
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                       На чому саме побудовано сайт? Які особливості він має? Як ророблявся Дизайн?
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <div>
-                        <Button onClick={handleOpen2}>View more</Button>
-                        <Modal
-                            open={open2}
-                            onClose={handleClose2}
-                            aria-labelledby="modal-modal-title"
-                            aria-describedby="modal-modal-description"
-                        >
-                            <Box sx={style1}>
-                                <Typography id="modal-modal-title" variant="h6" component="h2">
-                                    Text in a modal 2
-                                </Typography>
-                                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                                </Typography>
-                            </Box>
-                        </Modal>
-                    </div>
-                </CardActions>
-            </Card>
+        </>
 
-            <Card sx={{ maxWidth: 345, bgcolor: blue[200], marginLeft: '3%', marginTop:'20%' }}>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    src="https://images.unsplash.com/photo-1620283084854-3585542e25ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-                    alt="heads"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Тематика сайту
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        Чому саме интернет магазин? Актуальність на сьогодення.
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <div>
-                        <Button onClick={handleOpen3}>View more</Button>
-                        <Modal
-                            open={open3}
-                            onClose={handleClose3}
-                            aria-labelledby="modal-modal-title"
-                            aria-describedby="modal-modal-description"
-                        >
-                            <Box sx={style1}>
-                                <Typography id="modal-modal-title" variant="h6" component="h2">
-                                    Text in a modal 3
-                                </Typography>
-                                <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                                    Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                                </Typography>
-                            </Box>
-                        </Modal>
-                    </div>
-                </CardActions>
-            </Card>
 
-            </>
     );
+
 }
+
+export default AboutProject;
