@@ -24,18 +24,8 @@ const CarList = () => {
   };
   
   return (
-    <div className="table-wrapper table-spacing ">
-      <Table striped bordered hover >
-        <thead>
-          <tr>
-            <th>BrandName</th>
-            <th>ModelName</th>
-            <th>type_car</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>{DataTable()}</tbody>
-      </Table>
+    <div className="table-spacing  ">
+      {DataTable()}
     </div>
   );
 };

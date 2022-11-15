@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import './CarTableRow.css'
 
 const CarTableRow = (props) => {
 const { _id, BrandName, ModelName, type_car } = props.obj;
@@ -20,11 +21,11 @@ const deleteCar = () => {
 };
 
 return (
-	<tr>
-	<td>{BrandName}</td>
-	<td>{ModelName}</td>
-	<td>{type_car}</td>
-	<td>
+	<ul  className="card" style={{borderRadius:'10%', backgroundColor:'#415A77'}} >
+	<li>{BrandName}</li>
+	<li>{ModelName}</li>
+	<li>{type_car}</li>
+	<li>
 		<Link className="edit-link"
 		to={"/edit-car/" + _id}>
 		Edit
@@ -33,8 +34,8 @@ return (
 		size="sm" variant="danger">
 		Delete
 		</Button>
-	</td>
-	</tr>
+	</li>
+	</ul>
 );
 };
 
