@@ -27,16 +27,16 @@ import EditCar from './editCar/editCar';
 import CarList from './carList/carList';
 
 
-const theme = createTheme({
-    components: {
-      MuiCssBaseline: {
-        styleOverrides: `
-          body {
-            color:grey;
-          }
-        `,
+const themeOne = createTheme({
+    palette: {
+        primary: {
+          light: '#1B263B',
+          main: '#1B263B',
+          dark: '#1B263B',
+          contrastText: '#fff',
+        },
+        
       },
-    },
   });
 
 const buttonsNav = [
@@ -151,7 +151,7 @@ export default function App() {
     };
 
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={themeOne}>
              <body>
               <Box sx={{ display: 'flex' }} >
             <CssBaseline />
@@ -198,7 +198,9 @@ export default function App() {
                     '& .MuiDrawer-paper': {
                         width: drawerWidth,
                         boxSizing: 'border-box',
+                       
                     },
+                    
                 }}
                 variant="persistent"
                 anchor="left"
@@ -217,6 +219,7 @@ export default function App() {
                                          fullWidth= 'true'
                                 orientation="vertical"
                                 aria-label="vertical outlined button group"
+                              
                             >
                                 {buttonsNav}
                             </ButtonGroup>
@@ -234,4 +237,3 @@ export default function App() {
       </ThemeProvider>
     );
 }
-
