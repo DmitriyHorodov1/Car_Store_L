@@ -7,7 +7,7 @@ export default function HomePage() {
     
 
     return (
-         <body>
+         <body className="bgblur"  style={{background: '#778DA9' }} >
         <h4 class = 'text'>
         Detroit
         <span>Detroit</span>
