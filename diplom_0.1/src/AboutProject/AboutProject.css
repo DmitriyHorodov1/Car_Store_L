@@ -14,7 +14,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 3rem;
     margin: 12rem 5vw;
-    margin-left: 20%;
+    margin-top: 20%;
+    margin-left: 23%;
     padding: 0;
     list-style-type: none;
     
@@ -115,3 +116,60 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
   } 
+  .text {
+    position: absolute;
+    top: 20%;
+    left: 50.5%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    font-size: 6em;
+    color: transparent;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.text span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #000;
+    transition: 0.5s;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    overflow: hidden;
+}
+
+
+.text:hover span:nth-child(1) {
+    transform: translateY(-18px);
+}
+.text span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #000;
+    transition: 0.5s;
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+    overflow: hidden;
+}
+.text:hover span:nth-child(2) {
+    transform: translateY(18px);
+}
+
+.text span:nth-child(3) {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%) scaleY(0);
+    width: 93%;
+    color: #000;
+    background: #E0E1DD;
+    font-size: 0.16em;
+    letter-spacing: 0.4em;
+    text-align: center;
+    padding-left: 20px;
+    margin-left: 5px;
+    transition: 0.5s;
+}
+.text:hover span:nth-child(3) {
+transform: translateY(-50%) scaleY(1);
+}

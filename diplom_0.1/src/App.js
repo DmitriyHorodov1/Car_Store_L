@@ -25,6 +25,10 @@ import CreatePage from './CreatePage/CreatePage';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import EditCar from './editCar/editCar';
 import CarList from './carList/carList';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import TelegramIcon from '@mui/icons-material/Telegram';
 
 
 const themeOne = createTheme({
@@ -40,10 +44,10 @@ const themeOne = createTheme({
   });
 
 const buttonsNav = [
-   <Link to="/" ><Button key="home">Home</Button></Link>,
-    <Link to="/car-list"><Button key="car-list">CarList</Button></Link>,
-      <Link to="/about" ><Button key="about">About</Button></Link>,
-      <Link to="/create-car" ><Button key="create-car">CretePage</Button></Link>
+   <Link to="/" ><button key="home" className='a2'>Home</button></Link>,
+    <Link to="/car-list"><button key="car-list" className='a2'>CarList</button></Link>,
+      <Link to="/about" ><button key="about" className='a2'>About</button></Link>,
+      <Link to="/create-car" ><button key="create-car" className='a2'>CretePage</button></Link>
 ];
 
 
@@ -166,7 +170,7 @@ export default function App() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
+                    <Typography variant="h2" noWrap component="div">
                        Detroit Car Store
                     </Typography>
 
@@ -198,6 +202,7 @@ export default function App() {
                     '& .MuiDrawer-paper': {
                         width: drawerWidth,
                         boxSizing: 'border-box',
+                        backgroundColor :"#E0E1DD"
                        
                     },
                     
@@ -232,6 +237,29 @@ export default function App() {
             </Drawer>
 
         </Box>
+
+        <footer className="site-footer ">
+      
+      <div className="container">
+        <div className="row">
+          <div className="col-md-8 col-sm-6 col-xs-12">
+            <p className="copyright-text">Copyright &copy; 2022 All Rights Reserved by 
+         <a href="#">Detroit</a>.
+            </p>
+          </div>
+
+          <div className="col-md-4 col-sm-6 col-xs-12" >
+             
+           <GitHubIcon fontSize="large"  style={{marginRight: "2%" }} ></GitHubIcon>
+           <InstagramIcon fontSize='large'  style={{marginRight: "2%" }} ></InstagramIcon>
+           <YouTubeIcon  fontSize='large' style={{marginRight: "2%" }}  ></YouTubeIcon>
+           <TelegramIcon fontSize='large'></TelegramIcon>
+             
+          </div>
+        </div>
+      </div>
+</footer>
+
        
       </body>
       </ThemeProvider>

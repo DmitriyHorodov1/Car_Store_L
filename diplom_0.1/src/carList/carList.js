@@ -24,9 +24,14 @@ const CarList = () => {
   };
   
   return (
-    <div className="table-spacing  ">
+    <><div className="table-spacing  ">
       {DataTable()}
     </div>
+
+      <footer className="footer">
+        Hello this is fotter
+      </footer>
+      </>
   );
 };
   

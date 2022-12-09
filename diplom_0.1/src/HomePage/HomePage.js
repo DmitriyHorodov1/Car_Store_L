@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import './HomePage.css'
 
+
+  
 export default function HomePage() {
 
     
@@ -14,6 +16,9 @@ export default function HomePage() {
         <span>Detroit</span>
         <span>New and used cars</span>
        </h4>
-       </body>
+         </body>
+      
+
+      
     );
 }

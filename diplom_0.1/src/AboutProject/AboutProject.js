@@ -13,6 +13,15 @@ function AboutProject() {
     return (
         <>
 
+        <h4 class = 'text'>
+        About
+        <span>About</span>
+        <span>About</span>
+        <span>Me and my project</span>
+        </h4>
+
+
+
             <ul class="cards">
   <li>
     <a className="card"  style={{borderRadius:'10%', backgroundColor:'#E0E1DD' }}>
