@@ -6,7 +6,7 @@ import CarForm from "../CarForm/CarForm";
 // CreateCar Component
 const CreateCar = () => {
   const [formValues, setFormValues] = 
-    useState({ BrandName: '', ModelName: '', type_car: '' })
+    useState({ BrandName:'', ModelName:'', year:'', mileage:'', condition:'', price:'', description:'' })
   // onSubmit handler
   const onSubmit = carObject => {
     axios.post(
@@ -17,6 +17,7 @@ const CreateCar = () => {
           alert('Car successfully created')
         else
           Promise.reject()
+          
       })
       .catch(err => alert('Something went wrong'))
   }

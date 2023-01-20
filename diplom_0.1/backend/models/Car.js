@@ -8,9 +8,21 @@ let carSchema = new Schema({
   ModelName: {
     type: String
   },
-  type_car: {
+  year: {
+    type: Number
+  },
+  mileage:{
+    type: Number
+  },
+  condition:{
     type: String
-  }
+  },
+  price:{
+    type: Number
+  },
+  description:{
+    type: String
+  },
 }, {
     collection: 'Carlist'
   })

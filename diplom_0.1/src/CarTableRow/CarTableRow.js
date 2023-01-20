@@ -5,7 +5,7 @@ import axios from "axios";
 import './CarTableRow.css'
 
 const CarTableRow = (props) => {
-const { _id, BrandName, ModelName, type_car } = props.obj;
+const { _id, BrandName, ModelName, year, mileage, condition, price, description } = props.obj;
 
 const deleteCar = () => {
 	axios
@@ -24,7 +24,9 @@ return (
 	<ul  className="card" style={{borderRadius:'10%', backgroundColor:'#415A77'}} >
 	<li>{BrandName}</li>
 	<li>{ModelName}</li>
-	<li>{type_car}</li>
+	<li>Year {year}</li>
+	<li>Price {price}</li>
+	<li>Miles {mileage}</li>
 	<li>
 		<Link className="edit-link"
 		to={"/edit-car/" + _id}>

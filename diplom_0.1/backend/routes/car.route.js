@@ -2,10 +2,10 @@ let mongoose = require("mongoose"),
   express = require("express"),
   router = express.Router();
   
-// Student Model
+// Car Model
 let carSchema = require("../models/Car");
   
-// CREATE Student
+// CREATE car
 router.post("/create-car", (req, res, next) => {
     carSchema.create(req.body, (error, data) => {
     if (error) {

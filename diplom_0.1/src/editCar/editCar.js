@@ -10,7 +10,11 @@ const EditCar = (props) => {
   const [formValues, setFormValues] = useState({
     BrandName: "",
     ModelName: "",
-    type_car: "",
+    year: 0,
+    mileage: 0,
+    condition:0,
+    price:0,
+    description:""
   });
     
   //onSubmit handler
@@ -38,8 +42,8 @@ const EditCar = (props) => {
         + props.match.params.id
       )
       .then((res) => {
-        const { BrandName, ModelName, type_car } = res.data;
-        setFormValues({ BrandName, ModelName, type_car });
+        const { BrandName, ModelName, year, mileage, condition,price, description  } = res.data;
+        setFormValues({ BrandName, ModelName, year, mileage, condition,price, description  });
       })
       .catch((err) => console.log(err));
   }, []);
