@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import './CarTableRow.css'
 
+
 const CarTableRow = (props) => {
 const { _id, BrandName, ModelName, year, mileage, condition, price, description } = props.obj;
 
@@ -21,13 +22,23 @@ const deleteCar = () => {
 };
 
 return (
-	<ul  className="card" style={{borderRadius:'10%', backgroundColor:'#415A77'}} >
-	<li>{BrandName}</li>
-	<li>{ModelName}</li>
-	<li>Year {year}</li>
-	<li>Price {price}</li>
-	<li>Miles {mileage}</li>
-	<li>
+	<>
+	<div  className="card " style={{borderRadius:'10%', backgroundColor:'#415A77'}} >
+		<div className="background">
+		<ul className="font-size">
+			<li>{BrandName}  {ModelName} Year {year} </li>
+			<li>Price {price}  Miles {mileage}</li>
+		</ul>
+	</div>
+	</div>
+	
+	</>
+
+);
+};
+
+export default CarTableRow;
+/*<li>
 		<Link className="edit-link"
 		to={"/edit-car/" + _id}>
 		Edit
@@ -36,9 +47,26 @@ return (
 		size="sm" variant="danger">
 		Delete
 		</Button>
-	</li>
-	</ul>
-);
-};
+	</li>*/
 
-export default CarTableRow;
+	/*<tr>
+			<td> Price {price} </td>
+			<td> Miles {mileage} </td>
+		</tr> */
+
+
+
+		/*<table className="font-size">
+	    <thead>		
+		<tr>
+			<th >{BrandName}</th>
+    		<th>{ModelName}</th>
+    		<th >Year {year}</th>
+			
+		</tr>
+		</thead>
+		<tr>
+			<th> Price {price} </th>
+			<th> Miles {mileage} </th>
+		</tr>
+	</table>*/ 

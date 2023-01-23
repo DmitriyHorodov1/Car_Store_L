@@ -2,5 +2,16 @@
     color: rgb(0, 0, 0);
    height: 20em;
    width: 20em;
-   
+   display: inline-block;
 }
+.font-size{
+    font-size: 1.2em;
+    
+}
+.background{
+  background-color: #E0E1DD;
+ margin-top: 81%;
+ height: 4em;
+
+}
+

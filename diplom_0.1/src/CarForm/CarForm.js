@@ -33,11 +33,11 @@ console.log(props);
 
   return (
     <>
-  
+           
     <div className="form-wrapper spasing-form ">
 
-      <Formik {...props} validationSchema={validationSchema}>
-        <Form   >
+      <Formik {...props} validationSchema={validationSchema} >
+        <Form  >
           <FormGroup>
             <label htmlFor="exampleFormControlTextarea1" > 
             <Typography variant="h4" gutterBottom>Brand name</Typography>

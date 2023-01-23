@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Table } from "react-bootstrap";
 import CarTableRow from "../CarTableRow/CarTableRow";
+import FilterSideBar from "../FilterSideBar/FilterSideBar";
 import "./carList.css"  
 const CarList = () => {
   const [cars, setCars] = useState([]);
@@ -25,8 +26,9 @@ const CarList = () => {
   
   return (
     <><div className="table-spacing  ">
-      {DataTable()}
+      {DataTable()} 
     </div>
+    <FilterSideBar />
       </>
   );
 };
