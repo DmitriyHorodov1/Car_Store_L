@@ -10,8 +10,18 @@ import TuneIcon from '@mui/icons-material/Tune';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Select from '@mui/material/Select';
+import { MenuItem } from '@mui/material';
+import InputLabel from '@mui/material/InputLabel';
+import Slider from '@material-ui/core/Slider';
+
 
 function FilterSideBar() {
+  const [mileage, setMileage] = useState([0, 500000]);
+
+  const handleChange = (event) => {
+    setMileage([event.target.value, event.target.value]);
+  };
+
     const [selectedYear, setSelectedYear] = useState('');
 
     const years = [];
@@ -68,18 +78,40 @@ function FilterSideBar() {
           }}
         />
          <Typography style={{marginLeft:'7%', marginTop:'2%'}} variant="h3" gutterBottom>Year</Typography>
-         <select
+         <InputLabel style={{marginLeft:'10%', width:'29em'}}  id="demo-simple-select-label">Select year</InputLabel>
+         <Select style={{marginLeft:'7%', width:'29em'}} 
         id="year-picker"
         value={selectedYear}
         onChange={(e) => setSelectedYear(e.target.value)}
       >
-        <option value="">Select year</option>
+        
         {years.map((year) => (
-          <option key={year} value={year}>
+          <MenuItem key={year} value={year}>
             {year}
-          </option>
+          </MenuItem>
         ))}
-      </select>
+      </Select>
+       
+      <Typography style={{marginLeft:'7%', marginTop:'2%'}} variant="h3" gutterBottom>Mileage</Typography>
+      
+      
+        <input
+          style={{marginLeft: '7%', width: '29em'}}
+          type="range"
+          min={0}
+          max={500000}
+          step={10000}
+          value={mileage[0]}
+          onChange={handleChange}
+        />
+        <Typography style={{marginLeft:'40%', marginTop:'2%'}} variant="h5">{mileage[0]}</Typography>
+        
+
+
+        <Button variant="outlined"  style={{marginLeft:'31%', marginTop:'10%', width:'11em', height:'4.5em', fontSize:'1.2em'}} >Apply</Button>
+        
+      
+    
 
           </List>
         </Box>
@@ -105,6 +137,7 @@ function FilterSideBar() {
         </React.Fragment>
       ))}
     </div>
+    
   );
 }
 
