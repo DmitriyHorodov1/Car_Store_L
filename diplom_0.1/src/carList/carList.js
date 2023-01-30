@@ -126,7 +126,7 @@ const CarList = () => {
               
 
              </form>
-            
+              
 
              
               </div>
@@ -147,12 +147,21 @@ const CarList = () => {
         console.log(error);
       });
   }, []);
-  
-  const DataTable = () => {
-    return cars.map((res, i) => {
-      return <CarTableRow obj={res} key={i}  formData={formData} />;
-    });
-  };
+   
+              const DataTable = () => {
+                return Object.keys(formData).length === 0
+                 ? cars.map((res, i) => {
+               return <CarTableRow obj={res} key={i} />;
+               })
+              : cars
+              .filter(car => {
+               return car.BrandName === formData.BrandName;
+                })
+               .map((res, i) => {
+               return <CarTableRow obj={res} key={i} />;
+          });
+          };
+
   /////////////////////////////////////////////////////////////////////////
   return (
     //table  and filter
@@ -180,12 +189,6 @@ const CarList = () => {
         </React.Fragment>
       ))}
     </div>
-
-
-
-
-
-
 
 
     </>
