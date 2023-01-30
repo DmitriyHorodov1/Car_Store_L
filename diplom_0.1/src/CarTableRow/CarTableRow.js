@@ -5,8 +5,22 @@ import axios from "axios";
 import './CarTableRow.css'
 
 
-const CarTableRow = (props) => {
+const CarTableRow = (props ) => {
 const { _id, BrandName, ModelName, year, mileage, condition, price, description } = props.obj;
+const { formData } = props;
+
+/*const filtered = employees.filter(employee => {
+    return employee.country === 'Canada'; }); */
+
+/*const filter = props.obj.filter(cars => {
+   return cars.year === formData.year;
+});	*/
+
+
+
+
+
+
 
 const deleteCar = () => {
 	axios
@@ -23,11 +37,12 @@ const deleteCar = () => {
 
 return (
 	<>
+      
 	<div  className="card " style={{borderRadius:'10%', backgroundColor:'#415A77'}} >
 		<div className="background">
 		<ul className="font-size">
-			<li>{BrandName}  {ModelName} Year {year} </li>
-			<li>Price {price}  Miles {mileage}</li>
+			<li>{BrandName}  {ModelName} Year {formData.year} </li>
+			<li> Price {price}  Miles {mileage}</li>
 		</ul>
 	</div>
 	</div>
