@@ -7,9 +7,6 @@ import './CarTableRow.css'
 
 const CarTableRow = (props ) => {
 const { _id, BrandName, ModelName, year, mileage, condition, price, description } = props.obj;
-
-
-
 const deleteCar = () => {
 	axios
 	.delete(
@@ -22,13 +19,11 @@ const deleteCar = () => {
 	})
 	.catch((err) => alert("Something went wrong"));
 };
-
-
-
 return (
 	<>
-      
+     
 	<div  className="card " style={{borderRadius:'10%', backgroundColor:'#415A77'}} >
+	
 		<div className="background">
 		<ul className="font-size">
 			<li>{BrandName}  {ModelName} Year {year} </li>
@@ -54,24 +49,4 @@ export default CarTableRow;
 		</Button>
 	</li>*/
 
-	/*<tr>
-			<td> Price {price} </td>
-			<td> Miles {mileage} </td>
-		</tr> */
-
-
-
-		/*<table className="font-size">
-	    <thead>		
-		<tr>
-			<th >{BrandName}</th>
-    		<th>{ModelName}</th>
-    		<th >Year {year}</th>
-			
-		</tr>
-		</thead>
-		<tr>
-			<th> Price {price} </th>
-			<th> Miles {mileage} </th>
-		</tr>
-	</table>*/ 
+	

@@ -15,7 +15,13 @@ import CarTableRow from "../CarTableRow/CarTableRow";
 import "./carList.css"  
 const CarList = () => {
 
+  const [priceFromError, setPriceFromError] = useState(false);
+  const [priceToError, setPriceToError] = useState(false);
 
+  const [brandName, setBrandName] = useState("");
+  const [modelName, setModelName] = useState("");
+  const [brandNameError, setBrandNameError] = useState("");
+  const [modelNameError, setModelNameError] = useState("");
 
   const [mileage, setMileage] = useState([0, 500000]);
 
@@ -27,6 +33,44 @@ const CarList = () => {
 
     const [formData, setFormData] = useState({});
 
+
+    const handleBrandNameChange = (e) => {
+      const value = e.target.value;
+      if (/^[a-zA-Z\s]+$/.test(value)) {
+        setBrandName(value);
+        setBrandNameError("");
+      } else {
+        setBrandNameError("Only letters and spaces are allowed");
+      }
+    };
+    
+    const handleModelNameChange = (e) => {
+      const value = e.target.value;
+      if (/^[a-zA-Z\s]+$/.test(value)) {
+        setModelName(value);
+        setModelNameError("");
+      } else {
+        setModelNameError("Only letters and spaces are allowed");
+      }
+    };
+    
+    const handlePriceFromChange = (e) => {
+      if (parseInt(e.target.value, 10) < 0) {
+        setPriceFromError(true);
+      } else {
+        setPriceFromError(false);
+      }
+    };
+  
+    const handlePriceToChange = (e) => {
+      if (parseInt(e.target.value, 10) < 0) {
+        setPriceToError(true);
+      } else {
+        setPriceToError(false);
+      }
+    };
+
+
     const handleSubmit = (event) => {
       event.preventDefault();
       setFormData({
@@ -37,11 +81,14 @@ const CarList = () => {
         year: event.target.year.value,
         mileage: event.target.mileage.value
       });
+      
+
+
     };
 
 
 
-    const years = [];
+    const years = [ ];
     for (let i = 1930; i <= 2023; i++) {
       years.push(i);
     }
@@ -74,28 +121,45 @@ const CarList = () => {
               <TextField style={{ marginLeft: '7%' }} name="priceFrom" label="From" type="number"
                 InputLabelProps={{
                   shrink: true,
-                }} />
+                }}
+                error={priceFromError}
+                helperText={priceFromError ? "Price From should not be negative" : ""}
+                onChange={handlePriceFromChange}
+                 />
               <TextField style={{ marginLeft: '7%' }} name="priceTo" label="To" type="number"
                 InputLabelProps={{
                   shrink: true,
-                }} />
+                }}
+                error={priceToError}
+            helperText={priceToError ? "Price To should not be negative" : ""}
+            onChange={handlePriceToChange}
+                 />
                 
                 
               <Typography style={{ marginLeft: '7%', marginTop: '2%' }} variant="h3" gutterBottom>Brand</Typography>
               <TextField style={{ marginLeft: '7%', width: '29em' }} name="BrandName" label="Brand" type="text"
                 InputLabelProps={{
                   shrink: true,
-                }} />
+                }}
+                error={Boolean(brandNameError)}
+                helperText={brandNameError}
+                onChange={handleBrandNameChange}
+                 />
                 
               <Typography style={{ marginLeft: '7%', marginTop: '2%' }} variant="h3" gutterBottom>Model</Typography>
               <TextField style={{ marginLeft: '7%', width: '29em' }} name="ModelName" label="Model" type="text"
                 InputLabelProps={{
                   shrink: true,
-                }} />
+                }}
+                error={Boolean(modelNameError)}
+                helperText={modelNameError} 
+                onChange={handleModelNameChange}
+                />
                 
               <Typography style={{ marginLeft: '7%', marginTop: '2%' }} variant="h3" gutterBottom>Year</Typography>
-              <InputLabel style={{ marginLeft: '10%', width: '29em' }} id="demo-simple-select-label">Select year</InputLabel>
+              <InputLabel style={{ marginLeft: '10%', width: '29em' }} id="demo-simple-select-label">Select a year</InputLabel>
               <Select style={{ marginLeft: '7%', width: '29em' }}
+               type="number"
                 name="year"
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value)}
@@ -122,7 +186,8 @@ const CarList = () => {
                 onChange={handleChange} />
               <Typography style={{ marginLeft: '40%', marginTop: '2%' }} variant="h5">{mileage[0]}</Typography>
               
-              <Button variant="outlined" type="submit" style={{ marginLeft: '31%', marginTop: '10%', width: '11em', height: '4.5em', fontSize: '1.2em' }}>Apply</Button>
+              <Button variant="outlined" type="submit" disabled={priceFromError || priceToError || Boolean(brandNameError) || Boolean(modelNameError)} style={{ marginLeft: '31%', marginTop: '10%', width: '11em', height: '4.5em', fontSize: '1.2em' }}>Apply</Button>
+
               
 
              </form>
@@ -148,20 +213,41 @@ const CarList = () => {
       });
   }, []);
    
-              const DataTable = () => {
-                return Object.keys(formData).length === 0
-                 ? cars.map((res, i) => {
-               return <CarTableRow obj={res} key={i} />;
-               })
-              : cars
-              .filter(car => {
-               return car.BrandName === formData.BrandName;
-                })
-               .map((res, i) => {
-               return <CarTableRow obj={res} key={i} />;
+  const DataTable = () => {
+    return Object.keys(formData).length === 0
+      ? cars.map((res, i) => {
+          return <CarTableRow obj={res} key={i} />;
+        })
+      : cars
+          .filter(car => {
+            let matches = true;
+            if (formData.BrandName) {
+              matches = matches && (car.BrandName === formData.BrandName);
+            }
+            if (formData.ModelName) {
+              matches = matches && (car.ModelName === formData.ModelName);
+            }
+            if (selectedYear) {
+              matches = matches && (car.year === selectedYear);
+            }
+            if (formData.priceFrom) {
+              matches = matches && (car.price >= formData.priceFrom);
+            }
+            if (formData.priceTo) {
+              matches = matches && (car.price <= formData.priceTo);
+            }
+            if (formData.mileageFrom) {
+              matches = matches && (car.mileage >= formData.mileageFrom);
+            }
+            if (formData.mileage) {
+              matches = matches && (car.mileage <= formData.mileage);
+            }
+            return matches;
+          })
+          .map((res, i) => {
+            return <CarTableRow obj={res} key={i} />;
           });
-          };
-
+  };
   /////////////////////////////////////////////////////////////////////////
   return (
     //table  and filter
