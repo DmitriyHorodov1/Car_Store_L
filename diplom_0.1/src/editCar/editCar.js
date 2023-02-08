@@ -4,52 +4,59 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CarForm from "../CarForm/CarForm";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
   
 // EditCar Component
+
+
+
 const EditCar = (props) => {
   const [formValues, setFormValues] = useState({
     BrandName: "",
     ModelName: "",
-    year: 0,
-    mileage: 0,
-    condition:0,
-    price:0,
+    year: "",
+    mileage: "",
+    condition:"",
+    price:"",
     description:""
   });
-    
-  //onSubmit handler
+ const {id} = useParams(); 
+ let navigate = useNavigate();
+ //onSubmit handler
   const onSubmit = (carObject) => {
     axios
       .put(
-        "http://localhost:4000/cars/update-car/" +
-          props.match.params.id,
-        carObject
+        "http://localhost:4000/cars/update-car/" + id,carObject
       )
       .then((res) => {
         if (res.status === 200) {
           alert("Car successfully updated");
-          props.history.push("/car-list");
+          navigate("/car-list");
         } else Promise.reject();
       })
-      .catch((err) => alert("Something went wrong"));
+      .catch((err) => console.log( err   ));
   };
   
   // Load data from server and reinitialize car form
   useEffect(() => {
     axios
       .get(
-        "http://localhost:4000/cars/update-car/" 
-        + props.match.params.id
+        "http://localhost:4000/cars/update-car/" + id
       )
       .then((res) => {
-        const { BrandName, ModelName, year, mileage, condition,price, description  } = res.data;
-        setFormValues({ BrandName, ModelName, year, mileage, condition,price, description  });
+        const { BrandName, ModelName, year, mileage, condition, price, description  } = res.data;
+        setFormValues({ BrandName, ModelName, year, mileage, condition, price, description  });
       })
-      .catch((err) => console.log(err));
+      .catch((err) =>  console.log(err));
   }, []);
-  
   // Return car form
   return (
+
+
+
+
+
     <CarForm
       initialValues={formValues}
       onSubmit={onSubmit}
@@ -57,8 +64,8 @@ const EditCar = (props) => {
     >
       Update Car
     </CarForm>
+    
   );
 };
-  
-// Export EditCar Component
+
 export default EditCar;

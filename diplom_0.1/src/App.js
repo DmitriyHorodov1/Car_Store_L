@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import "./App.css"
-import {Routes, Route , Link} from "react-router-dom";
+import {Routes, Route , Link, useParams} from "react-router-dom";
 import HomePage from "./HomePage/HomePage";
 import AboutProject from "./AboutProject/AboutProject";
 import SearchIcon from '@mui/icons-material/Search';
@@ -29,6 +29,10 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TelegramIcon from '@mui/icons-material/Telegram';
+
+
+
+
 
 
 const themeOne = createTheme({
@@ -191,7 +195,7 @@ export default function App() {
                 <Route path="/" element={<HomePage/>} />
                 <Route path="/about" element={<AboutProject/>} />
                 <Route path="/create-car" element={<CreatePage />} /> 
-                <Route  path = "/edit-car/:id" element={<EditCar/>} /> 
+                <Route path="/update-car/:id" element={<EditCar/>} />
                 <Route path = "/car-list"  element={<CarList/>}/>
             </Routes>
 
