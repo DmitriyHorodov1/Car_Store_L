@@ -27,6 +27,22 @@ router.get("/", (req, res) => {
     }
   });
 });
+// READ ONE CAR
+router
+  .route("/car-info/:id")
+  .get((req, res) => {
+    carSchema.findById(
+        req.params.id, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.json(data);
+      }
+    });
+  })
+
+
+
   
 // UPDATE car
 router

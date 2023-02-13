@@ -19,7 +19,6 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import { styled, useTheme,alpha } from '@mui/material/styles';
 import {InputBase} from "@mui/material";
-import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import CreatePage from './CreatePage/CreatePage';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -29,7 +28,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import TelegramIcon from '@mui/icons-material/Telegram';
-
+import CarInfo from './CarInfo/CarInfo';
 
 
 
@@ -197,6 +196,7 @@ export default function App() {
                 <Route path="/create-car" element={<CreatePage />} /> 
                 <Route path="/update-car/:id" element={<EditCar/>} />
                 <Route path = "/car-list"  element={<CarList/>}/>
+                <Route path = "/car-info/:id" element={<CarInfo/>}/>
             </Routes>
 
             <Drawer

@@ -236,9 +236,6 @@ const CarList = () => {
             if (formData.priceTo) {
               matches = matches && (car.price <= formData.priceTo);
             }
-            if (formData.mileageFrom) {
-              matches = matches && (car.mileage >= formData.mileageFrom);
-            }
             if (formData.mileage) {
               matches = matches && (car.mileage <= formData.mileage);
             }

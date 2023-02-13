@@ -26,10 +26,9 @@ return (
 	<div  className="card " style={{borderRadius:'10%', backgroundColor:'#415A77'}} >
 	
 		<div className="background">
-		<Link className="edit-link"
-		to={"/update-car/" + _id}>
-		Edit
-		</Link>
+		<Button onClick={deleteCar} size="sm" variant="danger"> Delete </Button>
+		<Link className="edit-link" to={"/update-car/" + _id}> Edit </Link>
+		<Link to={"/car-info/"+_id}> Info </Link>
 		<ul className="font-size">
 			<li>{BrandName}  {ModelName} Year {year} </li>
 			<li> Price {price}  Miles {mileage}</li>

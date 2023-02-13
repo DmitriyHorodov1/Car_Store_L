@@ -9,8 +9,6 @@ import { useNavigate } from "react-router-dom";
   
 // EditCar Component
 
-
-
 const EditCar = (props) => {
   const [formValues, setFormValues] = useState({
     BrandName: "",
@@ -21,9 +19,11 @@ const EditCar = (props) => {
     price:"",
     description:""
   });
- const {id} = useParams(); 
- let navigate = useNavigate();
- //onSubmit handler
+  const {id} = useParams(); 
+  let navigate = useNavigate();
+
+
+  /*//onSubmit handler
   const onSubmit = (carObject) => {
     axios
       .put(
@@ -36,8 +36,29 @@ const EditCar = (props) => {
         } else Promise.reject();
       })
       .catch((err) => console.log( err   ));
+  };*/
+
+
+  // onSubmit handler
+  const onSubmit = (carObject) => {
+    updateCar(carObject);
   };
-  
+
+  // new method for updating the car
+  const updateCar = (carObject) => {
+    axios
+      .put(
+        "http://localhost:4000/cars/update-car/" + id,carObject
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          alert("Car successfully updated");
+          navigate("/car-list");
+        } else Promise.reject();
+      })
+      .catch((err) => console.log( err   ));
+  };
+
   // Load data from server and reinitialize car form
   useEffect(() => {
     axios
@@ -50,13 +71,9 @@ const EditCar = (props) => {
       })
       .catch((err) =>  console.log(err));
   }, []);
+
   // Return car form
   return (
-
-
-
-
-
     <CarForm
       initialValues={formValues}
       onSubmit={onSubmit}
@@ -64,7 +81,6 @@ const EditCar = (props) => {
     >
       Update Car
     </CarForm>
-    
   );
 };
 
